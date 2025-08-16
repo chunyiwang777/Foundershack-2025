@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighborhood Net-Zero CoLab - Community Energy Collaboration Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>Net-Zero CoLab</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#platform" class="nav-link">Platform</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#dr-events" class="nav-link">DR Events</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Neighborhood Net-Zero CoLab</h1>
+                <p>Enable neighborhoods, apartment complexes, schools and hospitals to use energy cheaper, lower-carbon and more grid-friendly—without sacrificing comfort or safety</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('demo')">
+                        <i class="fas fa-play"></i> Start Experience
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('platform')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="energy-flow">
+                    <div class="flow-item">
+                        <i class="fas fa-solar-panel"></i>
+                        <span>Solar PV</span>
+                    </div>
+                    <div class="flow-item">
+                        <i class="fas fa-car-battery"></i>
+                        <span>Battery Storage</span>
+                    </div>
+                    <div class="flow-item">
+                        <i class="fas fa-charging-station"></i>
+                        <span>EV Chargers</span>
+                    </div>
+                    <div class="flow-item">
+                        <i class="fas fa-home"></i>
+                        <span>Smart Buildings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Features -->
+    <section id="platform" class="platform">
+        <div class="container">
+            <h2>Platform Core Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Virtual Testbed</h3>
+                    <p>Test different energy strategies before deployment, compare cost, peak, emissions and comfort impacts</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Collaboration</h3>
+                    <p>Transparent decision-making process, enabling all stakeholders to participate in voting and strategy development</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Intelligent Dispatch</h3>
+                    <p>Automatically generate "Tomorrow Plan", optimize EV charging, battery charge/discharge and HVAC operation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy Protection</h3>
+                    <p>Use aggregated and synthetic data to protect personal privacy while providing accurate analysis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2>Platform Demo</h2>
+            <p class="demo-intro">Experience the complete energy strategy development process, from community configuration to final decision</p>
+            
+            <!-- Step Navigation -->
+            <div class="demo-steps">
+                <div class="step active" data-step="1">
+                    <span class="step-number">1</span>
+                    <span class="step-title">Community Profile</span>
+                </div>
+                <div class="step" data-step="2">
+                    <span class="step-number">2</span>
+                    <span class="step-title">Strategy Matching</span>
+                </div>
+                <div class="step" data-step="3">
+                    <span class="step-number">3</span>
+                    <span class="step-title">Parameter Tuning</span>
+                </div>
+                <div class="step" data-step="4">
+                    <span class="step-number">4</span>
+                    <span class="step-title">Simulation & Comparison</span>
+                </div>
+                <div class="step" data-step="5">
+                    <span class="step-number">5</span>
+                    <span class="step-title">Community Vote</span>
+                </div>
+                <div class="step" data-step="6">
+                    <span class="step-number">6</span>
+                    <span class="step-title">Generate Plan</span>
+                </div>
+            </div>
+
+            <!-- Step Content -->
+            <div class="demo-content">
+                <!-- Step 1: Community Profile -->
+                <div class="step-content active" id="step-1">
+                    <h3>Create Community Profile & Baseline</h3>
+                    <div class="community-form">
+                        <div class="form-group">
+                            <label>Number of Households</label>
+                            <input type="number" id="households" value="120" min="50" max="500">
+                        </div>
+                        <div class="form-group">
+                            <label>EV Share (%)</label>
+                            <input type="range" id="ev-share" min="10" max="50" value="25">
+                            <span class="range-value">25%</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Solar PV Capacity (kW)</label>
+                            <input type="number" id="pv-capacity" value="200" min="0" max="1000">
+                        </div>
+                        <div class="form-group">
+                            <label>Battery Storage Capacity (kWh)</label>
+                            <input type="number" id="battery-capacity" value="500" min="0" max="2000">
+                        </div>
+                        <div class="form-group">
+                            <label>Tariff Type</label>
+                            <select id="tariff-type">
+                                <option value="tou">Time-of-Use (TOU)</option>
+                                <option value="fixed">Fixed Rate</option>
+                            </select>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="btn btn-secondary" onclick="previousStep()" disabled>Previous</button>
+                            <button class="btn btn-primary" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Strategy Matching -->
+                <div class="step-content" id="step-2">
+                    <h3>Get Playbook Card Match</h3>
+                    <div class="playbook-matching">
+                        <div class="matching-result">
+                            <h4>Recommended Strategy Card</h4>
+                            <div class="playbook-card">
+                                <div class="card-header">
+                                    <h5>Summer Peak Shaving + EV Night Charging + Pre-cooling</h5>
+                                    <span class="match-score">Match: 92%</span>
+                                </div>
+                                <div class="card-content">
+                                    <div class="strategy-overview">
+                                        <h6>Strategy Overview</h6>
+                                        <p>This comprehensive energy optimization strategy combines three key techniques to maximize cost savings while maintaining comfort and grid stability.</p>
+                                    </div>
+                                    
+                                    <div class="applicability-section">
+                                        <h6>Applicability</h6>
+                                        <div class="applicability-grid">
+                                            <div class="applicability-item">
+                                                <i class="fas fa-home"></i>
+                                                <span>100-300 residential units</span>
+                                            </div>
+                                            <div class="applicability-item">
+                                                <i class="fas fa-car"></i>
+                                                <span>EV adoption: 15-40%</span>
+                                            </div>
+                                            <div class="applicability-item">
+                                                <i class="fas fa-solar-panel"></i>
+                                                <span>Rooftop PV: 100-500 kW</span>
+                                            </div>
+                                            <div class="applicability-item">
+                                                <i class="fas fa-battery-full"></i>
+                                                <span>Building battery: 200-1000 kWh</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="expected-impact">
+                                        <h6>Expected Impact (P10/P50/P90)</h6>
+                                        <div class="impact-grid">
+                                            <div class="impact-item cost">
+                                                <div class="impact-header">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                    <span>Cost Reduction</span>
+                                                </div>
+                                                <div class="impact-values">
+                                                    <span class="p10">10%</span>
+                                                    <span class="p50">14%</span>
+                                                    <span class="p90">16%</span>
+                                                </div>
+                                                <div class="impact-label">P10/P50/P90</div>
+                                            </div>
+                                            <div class="impact-item peak">
+                                                <div class="impact-header">
+                                                    <i class="fas fa-chart-line"></i>
+                                                    <span>Peak Reduction</span>
+                                                </div>
+                                                <div class="impact-values">
+                                                    <span class="p10">15%</span>
+                                                    <span class="p50">22%</span>
+                                                    <span class="p90">28%</span>
+                                                </div>
+                                                <div class="impact-label">P10/P50/P90</div>
+                                            </div>
+                                            <div class="impact-item emissions">
+                                                <div class="impact-header">
+                                                    <i class="fas fa-leaf"></i>
+                                                    <span>Emissions Reduction</span>
+                                                </div>
+                                                <div class="impact-values">
+                                                    <span class="p10">12%</span>
+                                                    <span class="p50">18%</span>
+                                                    <span class="p90">22%</span>
+                                                </div>
+                                                <div class="impact-label">P10/P50/P90</div>
+                                            </div>
+                                            <div class="impact-item comfort">
+                                                <div class="impact-header">
+                                                    <i class="fas fa-thermometer-half"></i>
+                                                    <span>Comfort Level</span>
+                                                </div>
+                                                <div class="impact-values">
+                                                    <span class="comfort-target">≥0.90</span>
+                                                </div>
+                                                <div class="impact-label">Target</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="technical-details">
+                                        <h6>Technical Implementation</h6>
+                                        <div class="tech-grid">
+                                            <div class="tech-item">
+                                                <h7>Peak Shaving</h7>
+                                                <ul>
+                                                    <li>Battery discharge: 17:00-21:00</li>
+                                                    <li>HVAC optimization: ±1°C comfort band</li>
+                                                    <li>Load shifting: 15-25% peak reduction</li>
+                                                </ul>
+                                            </div>
+                                            <div class="tech-item">
+                                                <h7>EV Night Charging</h7>
+                                                <ul>
+                                                    <li>Charging window: 22:00-07:00</li>
+                                                    <li>Smart scheduling: 80% completion by 06:00</li>
+                                                    <li>Grid-friendly: 30-40% off-peak utilization</li>
+                                                </ul>
+                                            </div>
+                                            <div class="tech-item">
+                                                <h7>Pre-cooling Strategy</h7>
+                                                <ul>
+                                                    <li>Pre-cool timing: 06:00-08:00</li>
+                                                    <li>Target temperature: 22°C</li>
+                                                    <li>Battery charging: 60-80% SOC</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="risk-assessment">
+                                        <h6>Risk Assessment & Mitigation</h6>
+                                        <div class="risk-items">
+                                            <div class="risk-item high">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                                <div class="risk-content">
+                                                    <strong>High Risk:</strong> Effect drops if participation <20%
+                                                    <span class="mitigation">Mitigation: Minimum 30% participation required</span>
+                                                </div>
+                                            </div>
+                                            <div class="risk-item medium">
+                                                <i class="fas fa-exclamation-circle"></i>
+                                                <div class="risk-content">
+                                                    <strong>Medium Risk:</strong> Battery degradation from frequent cycling
+                                                    <span class="mitigation">Mitigation: SOC limits 20-90%, temperature monitoring</span>
+                                                </div>
+                                            </div>
+                                            <div class="risk-item low">
+                                                <i class="fas fa-info-circle"></i>
+                                                <div class="risk-content">
+                                                    <strong>Low Risk:</strong> Comfort complaints during extreme weather
+                                                    <span class="mitigation">Mitigation: Dynamic comfort band adjustment</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="deployment-checklist">
+                                        <h6>Deployment Checklist</h6>
+                                        <div class="checklist-grid">
+                                            <div class="checklist-item">
+                                                <input type="checkbox" id="check1" checked disabled>
+                                                <label for="check1">Community profile analysis completed</label>
+                                            </div>
+                                            <div class="checklist-item">
+                                                <input type="checkbox" id="check2" checked disabled>
+                                                <label for="check2">Strategy match score >85%</label>
+                                            </div>
+                                            <div class="checklist-item">
+                                                <input type="checkbox" id="check3">
+                                                <label for="check3">Parameter tuning and simulation</label>
+                                            </div>
+                                            <div class="checklist-item">
+                                                <input type="checkbox" id="check4">
+                                                <label for="check4">Community vote and approval</label>
+                                            </div>
+                                            <div class="checklist-item">
+                                                <input type="checkbox" id="check5">
+                                                <label for="check5">Implementation plan generation</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <div class="card-stats">
+                                            <div class="stat">
+                                                <span class="stat-number">3,247</span>
+                                                <span class="stat-label">Similar Deployments</span>
+                                            </div>
+                                            <div class="stat">
+                                                <span class="stat-number">4.8★</span>
+                                                <span class="stat-label">Success Rating</span>
+                                            </div>
+                                            <div class="stat">
+                                                <span class="stat-number">92%</span>
+                                                <span class="stat-label">Match Score</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="btn btn-secondary" onclick="previousStep()">Previous</button>
+                            <button class="btn btn-primary" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Parameter Tuning -->
+                <div class="step-content" id="step-3">
+                    <h3>Tune Strategy Parameters</h3>
+                    <div class="parameter-tuning">
+                        <div class="tuning-controls">
+                            <div class="control-group">
+                                <label>Participation Rate: <span id="participation-value">30%</span></label>
+                                <input type="range" id="participation" min="20" max="60" value="30">
+                            </div>
+                            <div class="control-group">
+                                <label>EV Charging Window: <span id="ev-window-value">22:00-07:00</span></label>
+                                <div class="time-range">
+                                    <input type="time" id="ev-start" value="22:00">
+                                    <span>to</span>
+                                    <input type="time" id="ev-end" value="07:00">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label>Battery Discharge Time: <span id="battery-discharge-value">17:00-21:00</span></label>
+                                <div class="time-range">
+                                    <input type="time" id="battery-start" value="17:00">
+                                    <span>to</span>
+                                    <input type="time" id="battery-end" value="21:00">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label>Comfort Band: ±<span id="comfort-range-value">1°C</span></label>
+                                <input type="range" id="comfort-range" min="0.5" max="2" step="0.1" value="1">
+                            </div>
+                        </div>
+                        <div class="live-kpis">
+                            <h4>Live KPI Updates</h4>
+                            <div class="kpi-grid">
+                                <div class="kpi-item">
+                                    <span class="kpi-label">Cost Savings</span>
+                                    <span class="kpi-value" id="cost-savings">14%</span>
+                                </div>
+                                <div class="kpi-item">
+                                    <span class="kpi-label">Peak Reduction</span>
+                                    <span class="kpi-value" id="peak-reduction">22%</span>
+                                </div>
+                                <div class="kpi-item">
+                                    <span class="kpi-label">Emissions Reduction</span>
+                                    <span class="kpi-value" id="emissions-reduction">18%</span>
+                                </div>
+                                <div class="kpi-item">
+                                    <span class="kpi-label">Comfort Level</span>
+                                    <span class="kpi-value" id="comfort-level">0.92</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="btn btn-secondary" onclick="previousStep()">Previous</button>
+                            <button class="btn btn-primary" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Simulation & Comparison -->
+                <div class="step-content" id="step-4">
+                    <h3>One-Click Simulation & Comparison</h3>
+                    <div class="simulation-comparison">
+                        <div class="comparison-chart">
+                            <canvas id="comparisonChart"></canvas>
+                        </div>
+                        <div class="comparison-results">
+                            <div class="result-item baseline">
+                                <h4>Baseline</h4>
+                                <div class="result-kpis">
+                                    <div class="kpi">Cost: 100</div>
+                                    <div class="kpi">Peak: 300 kW</div>
+                                    <div class="kpi">Emissions: 100 t</div>
+                                    <div class="kpi">Comfort: 1.0</div>
+                                </div>
+                            </div>
+                            <div class="result-item plan-a">
+                                <h4>Strategy A (Recommended)</h4>
+                                <div class="result-kpis">
+                                    <div class="kpi">Cost: ↓14% (10-16%)</div>
+                                    <div class="kpi">Peak: ↓22% (15-28%)</div>
+                                    <div class="kpi">Emissions: ↓18% (12-22%)</div>
+                                    <div class="kpi">Comfort: ≥0.90</div>
+                                </div>
+                                <div class="status-badge success">Passed</div>
+                            </div>
+                            <div class="result-item plan-b">
+                                <h4>Strategy B (Custom)</h4>
+                                <div class="result-kpis">
+                                    <div class="kpi">Cost: ↓16% (12-18%)</div>
+                                    <div class="kpi">Peak: ↓25% (18-30%)</div>
+                                    <div class="kpi">Emissions: ↓20% (15-25%)</div>
+                                    <div class="kpi">Comfort: 0.82</div>
+                                </div>
+                                <div class="status-badge error">Rejected</div>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="btn btn-secondary" onclick="previousStep()">Previous</button>
+                            <button class="btn btn-primary" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Community Vote -->
+                <div class="step-content" id="step-5">
+                    <h3>Launch Community Vote</h3>
+                    <div class="community-vote">
+                        <div class="vote-summary">
+                            <h4>Vote Plan Summary</h4>
+                            <div class="vote-details">
+                                <p><strong>Strategy:</strong> Summer Peak Shaving + EV Night Charging + Pre-cooling</p>
+                                <p><strong>Expected Impact:</strong> ~$200 annual savings per household, 22% peak reduction, 18% emissions reduction</p>
+                                <p><strong>Comfort Commitment:</strong> Maintain or improve current comfort levels</p>
+                                <p><strong>DR Incentive:</strong> $10-20 reward per household on heatwave warning days</p>
+                            </div>
+                        </div>
+                        
+                        <div class="vote-settings">
+                            <h4>Vote Settings</h4>
+                            <div class="settings-grid">
+                                <div class="setting-item">
+                                    <label>Vote Deadline</label>
+                                    <input type="datetime-local" id="vote-deadline" value="">
+                                </div>
+                                <div class="setting-item">
+                                    <label>Approval Threshold</label>
+                                    <select id="vote-threshold">
+                                        <option value="50">50% Support Rate</option>
+                                        <option value="60" selected>60% Support Rate</option>
+                                        <option value="70">70% Support Rate</option>
+                                        <option value="80">80% Support Rate</option>
+                                    </select>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Minimum Participation</label>
+                                    <select id="min-participation">
+                                        <option value="30">30% Participation</option>
+                                        <option value="40" selected>40% Participation</option>
+                                        <option value="50">50% Participation</option>
+                                        <option value="60">60% Participation</option>
+                                    </select>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Email Subject</label>
+                                    <input type="text" id="email-subject" value="Community Energy Optimization Plan Vote - Please Participate" placeholder="Enter email subject">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="email-preview">
+                            <h4>Email Preview</h4>
+                            <div class="email-content">
+                                <div class="email-header">
+                                    <strong>To:</strong> All Residential Users (120 households)
+                                </div>
+                                <div class="email-header">
+                                    <strong>Subject:</strong> <span id="email-subject-preview">Community Energy Optimization Plan Vote - Please Participate</span>
+                                </div>
+                                <div class="email-body">
+                                    <p>Dear Neighbors,</p>
+                                    <p>We are considering implementing a new energy optimization strategy that is expected to save each household approximately $200 annually while reducing peak electricity demand by 22% and carbon emissions by 18%.</p>
+                                    <p><strong>Strategy Details:</strong></p>
+                                    <ul>
+                                        <li>Summer Peak Shaving + EV Night Charging + Pre-cooling</li>
+                                        <li>Maintain or improve current comfort levels</li>
+                                        <li>$10-20 reward per household on heatwave warning days</li>
+                                    </ul>
+                                    <p>Please click the link below to participate in the vote. Voting deadline: <span id="deadline-preview">Please set deadline</span></p>
+                                    <p>Your participation is important to us!</p>
+                                    <p>Property Management Team</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vote-actions">
+                            <div class="action-buttons">
+                                <button class="btn btn-primary" onclick="launchVote()">
+                                    <i class="fas fa-paper-plane"></i> Launch Vote
+                                </button>
+                                <button class="btn btn-secondary" onclick="previewEmail()">
+                                    <i class="fas fa-eye"></i> Preview Email
+                                </button>
+                                <button class="btn btn-outline" onclick="saveDraft()">
+                                    <i class="fas fa-save"></i> Save Draft
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="vote-status" id="vote-status" style="display: none;">
+                            <div class="status-content">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Vote Launched!</h4>
+                                <p>Vote emails have been sent to all 120 residential households</p>
+                                <div class="status-details">
+                                    <div class="status-item">
+                                        <span class="label">Vote Link:</span>
+                                        <span class="value">https://vote.netzero-colab.com/abc123</span>
+                                        <button class="btn btn-sm" onclick="copyLink()">Copy</button>
+                                    </div>
+                                    <div class="status-item">
+                                        <span class="label">Deadline:</span>
+                                        <span class="value" id="status-deadline">Please set deadline</span>
+                                    </div>
+                                    <div class="status-item">
+                                        <span class="label">Current Status:</span>
+                                        <span class="value status-badge pending">Waiting for Votes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button class="btn btn-secondary" onclick="previousStep()">Previous</button>
+                            <button class="btn btn-primary" id="next-step-btn" onclick="nextStep()" style="display: none;">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6: Generate Plan -->
+                <div class="step-content" id="step-6">
+                    <h3>Generate Tomorrow Plan</h3>
+                    <div class="tomorrow-plan">
+                        <div class="plan-header">
+                            <h4>Tomorrow's Energy Dispatch Plan</h4>
+                            <p>Generated based on Strategy A approved by community vote</p>
+                        </div>
+                        <div class="plan-schedule">
+                            <div class="schedule-item">
+                                <div class="time-slot">06:00-08:00</div>
+                                <div class="action">Pre-cool building, battery charging</div>
+                                <div class="target">Target temp: 22°C</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="time-slot">08:00-17:00</div>
+                                <div class="action">Normal operation, solar charging</div>
+                                <div class="target">Battery SOC: 80%</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="time-slot">17:00-21:00</div>
+                                <div class="action">Battery discharge peak shaving, HVAC optimization</div>
+                                <div class="target">Peak reduction: 22%</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="time-slot">22:00-07:00</div>
+                                <div class="action">EV charging, battery maintenance charging</div>
+                                <div class="target">EV fully charged: 07:00</div>
+                            </div>
+                        </div>
+                        <div class="plan-export">
+                            <h4>Export Options</h4>
+                            <div class="export-buttons">
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-download"></i> CSV Format
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-calendar"></i> ICS Calendar
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-code"></i> JSON API
+                                </button>
+                            </div>
+                        </div>
+                        <div class="plan-success">
+                            <div class="success-message">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Plan Generated Successfully!</h4>
+                                <p>Your community energy optimization strategy is ready to execute.</p>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="btn btn-secondary" onclick="previousStep()">Previous</button>
+                            <button class="btn btn-primary" onclick="goToStep(1)">Start Over</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DR Events Section -->
+    <section id="dr-events" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Demand Response Events</h2>
+                <p>Manage grid flexibility events and earn revenue through coordinated energy optimization</p>
+            </div>
+
+            <div class="dr-dashboard">
+                <!-- DR Event Creation -->
+                <div class="dr-creation-panel">
+                    <h3>Create New DR Event</h3>
+                    <div class="dr-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dr-event-name">Event Name</label>
+                                <input type="text" id="dr-event-name" placeholder="e.g., Summer Peak Alert">
+                            </div>
+                            <div class="form-group">
+                                <label for="dr-event-type">Event Type</label>
+                                <select id="dr-event-type">
+                                    <option value="peak-shaving">Peak Shaving</option>
+                                    <option value="emergency">Emergency Response</option>
+                                    <option value="price-spike">Price Spike</option>
+                                    <option value="renewable">Renewable Integration</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dr-start-time">Start Time</label>
+                                <input type="datetime-local" id="dr-start-time">
+                            </div>
+                            <div class="form-group">
+                                <label for="dr-duration">Duration (hours)</label>
+                                <select id="dr-duration">
+                                    <option value="1">1 hour</option>
+                                    <option value="2">2 hours</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="4">4 hours</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dr-target-reduction">Target Reduction (kW)</label>
+                                <input type="number" id="dr-target-reduction" placeholder="500" min="100" step="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="dr-reward-price">Reward Price ($/kWh)</label>
+                                <input type="number" id="dr-reward-price" placeholder="0.50" min="0.10" step="0.05">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dr-description">Event Description</label>
+                            <textarea id="dr-description" rows="3" placeholder="Describe the event purpose, expected impact, and any special requirements..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-outline" onclick="previewDREvent()">Preview Event</button>
+                            <button class="btn btn-primary" onclick="createDREvent()">Create DR Event</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active DR Events -->
+                <div class="dr-events-panel">
+                    <h3>Active DR Events</h3>
+                    <div class="dr-events-grid">
+                        <div class="dr-event-card active">
+                            <div class="event-header">
+                                <span class="event-status active">Active</span>
+                                <span class="event-type peak-shaving">Peak Shaving</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Summer Peak Alert</h4>
+                                <div class="event-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Today 18:00 - 20:00 (2h)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-bullseye"></i>
+                                        <span>Target: 500 kW reduction</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Reward: $0.75/kWh</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-users"></i>
+                                        <span>Participants: 45/120 units</span>
+                                    </div>
+                                </div>
+                                <div class="event-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 78%"></div>
+                                    </div>
+                                    <span class="progress-text">78% of target achieved</span>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="btn btn-sm btn-outline" onclick="viewEventDetails(1)">View Details</button>
+                                    <button class="btn btn-sm btn-primary" onclick="manageEvent(1)">Manage</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dr-event-card upcoming">
+                            <div class="event-header">
+                                <span class="event-status upcoming">Upcoming</span>
+                                <span class="event-type emergency">Emergency</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Grid Stability Alert</h4>
+                                <div class="event-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Tomorrow 14:00 - 16:00 (2h)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-bullseye"></i>
+                                        <span>Target: 300 kW reduction</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Reward: $1.20/kWh</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-users"></i>
+                                        <span>Participants: 32/120 units</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="btn btn-sm btn-outline" onclick="viewEventDetails(2)">View Details</button>
+                                    <button class="btn btn-sm btn-warning" onclick="editEvent(2)">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DR Analytics & Revenue -->
+                <div class="dr-analytics-panel">
+                    <h3>DR Performance & Revenue</h3>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <div class="analytics-header">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>This Month</h4>
+                            </div>
+                            <div class="analytics-content">
+                                <div class="metric">
+                                    <span class="metric-value">$2,847</span>
+                                    <span class="metric-label">Total Revenue</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">8</span>
+                                    <span class="metric-label">Events Completed</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">2.4 MW</span>
+                                    <span class="metric-label">Peak Reduction</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <div class="analytics-header">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h4>Historical Performance</h4>
+                            </div>
+                            <div class="analytics-content">
+                                <div class="metric">
+                                    <span class="metric-value">$18,234</span>
+                                    <span class="metric-label">YTD Revenue</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">94%</span>
+                                    <span class="metric-label">Success Rate</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">15.7 MW</span>
+                                    <span class="metric-label">Total Reduction</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <div class="analytics-header">
+                                <i class="fas fa-users"></i>
+                                <h4>Community Participation</h4>
+                            </div>
+                            <div class="analytics-content">
+                                <div class="metric">
+                                    <span class="metric-value">67%</span>
+                                    <span class="metric-label">Avg Participation</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">$45.20</span>
+                                    <span class="metric-label">Per Unit/Event</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">4.2★</span>
+                                    <span class="metric-label">Satisfaction</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DR Settlement & Payouts -->
+                <div class="dr-settlement-panel">
+                    <h3>Recent Settlements & Payouts</h3>
+                    <div class="settlement-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Date</th>
+                                    <th>Reduction</th>
+                                    <th>Reward Rate</th>
+                                    <th>Total Payout</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Summer Peak Alert</td>
+                                    <td>2024-01-15</td>
+                                    <td>487 kW</td>
+                                    <td>$0.75/kWh</td>
+                                    <td>$365.25</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline" onclick="viewSettlement(1)">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Heat Wave Response</td>
+                                    <td>2024-01-12</td>
+                                    <td>612 kW</td>
+                                    <td>$0.60/kWh</td>
+                                    <td>$367.20</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline" onclick="viewSettlement(2)">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Grid Maintenance</td>
+                                    <td>2024-01-10</td>
+                                    <td>298 kW</td>
+                                    <td>$0.80/kWh</td>
+                                    <td>$238.40</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline" onclick="viewSettlement(3)">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Neighborhood Net-Zero CoLab is an innovative energy management platform dedicated to solving challenges faced by communities and institutions during energy transition.</p>
+                    <p>Our mission is to enable every community to use energy in a more cost-effective, low-carbon, and grid-friendly manner while maintaining comfort and safety.</p>
+                    <div class="mission-stats">
+                        <div class="stat">
+                            <span class="stat-number">2050</span>
+                            <span class="stat-label">Net Zero Target</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Communities Covered</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">20%</span>
+                            <span class="stat-label">Average Energy Savings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@netzero-colab.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Energy Street, Green City, GC 12345</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Neighborhood Net-Zero CoLab</h4>
+                    <p>Accelerating community energy transition toward net-zero future</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#platform">Platform</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Neighborhood Net-Zero CoLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
